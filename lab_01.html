@@ -4,11 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab 01</title>
+    <link rel="stylesheet" href="./styles/lab_01.css">
 </head>
 <body>
- S   
+    <header>
+        <h1>Ian Hernández</h1> 
+        <h2>Matricula: A01276755</h2>
+        </p>Soy un estudiante/emprendedor y en mis tiempos libres músico y corredor.</p>
+    </header>
+    <div class="contenedor section-1">
+        <div class="contenedor pasiones">
+            <h2>Mis pasiones:</h2>
+            <p><strong>Deporte</strong></br>Gran parte de mi vida practique artes marciales (TKD) representando a mi estado, una disciplina que más alla de lo deportivo formó la persona que soy hoy, la mentalidad y caracter.
+            <p><strong>Música</strong></br>Desde pequeño siempre me ha gustado la música, siempre que puedo trato de volver a tomar la guitarra y el piano un rato, he participado en algunas presentaciones en público y creo que la música es la que le da balance a mi vida</p>
+        </div>
+        <div id="proyects" class="contenedor proyectos">
+            <h1  data-aos="fade-up" >Proyectos</h1>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2>PSB | Proyecto IoT</h2>
+                    <img src="./img/PSB.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Proyecto IoT, página web programada con Express JS y conectada a base de datos MySQL para autenticación de usuario y encriptación de contraseñas. Esta aplicaicón recibe información de sensores de pulsos electromagnéticos y GPS para enviarlos a una base de datos en la nube (Ubidots) con posibilidad de guardarlo en la base de datos local.</p>
+                    <a class="button uno" href="https://proyectoiot-production.up.railway.app/home">Ir al sitio</a>
+                    <a class="button dos"  href="https://github.com/IAN-coder-12/proyectoIoT.git ">Codigo Git Hub</a>
+                </div>
+            </div>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2>CVDP Página Web </h2>
+                    <img src="./img/cvdp.jpg" alt="">
+                </div>
+                <div class="info">
+                    <p>Sitio web del CVDP Campus Qro para mejorar el servicios y la atención a alumnos a punto de graduarse y potenciar su vida profesional. Este sitio fue programado en React JS</p>
+                    <a class="button uno" href="https://ian-hdzzz.github.io/cvdp_site/#/home" >Ir al sitio</a>
+                    <a class="button dos" href="https://github.com/ian-hdzzz/cvdp_qro">Código Git Hub</a>
+                </div>
+            </div>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2>Neolen | Hackaton Fintech 2024</h2>
+                    <img src="./img/neolen.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Prototipo de interfaz (MVP) de aplicación fintech, ganadora del Hackathon "Fintech4All" con pase al Hackathon mundial en Suiza 2025.</p>
+                    <a class="button uno" href="https://www.figma.com/proto/oQif6WfnRU0ulOyfWL6xaW/Neolen?node-id=1-7&starting-point-node-id=1%3A7&t=5DAXYVHytwlcg5zz-1">Prototipo Interfaz MVP</a>
+                </div>
+            </div>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2>Chatbot de IA para el CVDP Qro</h2>
+                    <img src="./img/chatbot.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Asistente de Inteligencia Artificial configurada en los servidores de META para funcionar en Whatsapp consumiendo la API de OpenAI (Chat GPT). </p>
+                    <a class="button uno" href="https://wa.me/7716072537?text=Hola"> Chatbot</a>
+                    <a class="button dos" href="https://github.com/ian-hdzzz/chabotIA_CVDP">Codigo Git Hub</a>
+                </div>
+            </div>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2> PRIME TOUR | Servicio Streaming </h2>
+                    <img src="./img/primeTour.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Servicio de Streaming de conciertos y artistas programado en C++, sin embargo se combinó con HTML, CSS y JS para dar estilo a la web.</p>
+                    <a class="button uno" href="https://ian-hdzzz.github.io/primeTour/index.html ">Ir al sitio</a>
+                    <a class="button dos" href="https://github.com/ian-hdzzz/primeTour">Codigo Git Hub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contenedor section2">
+            <h2>Preguntas a Resolver</h2>
+            <h3>¿Cuál es la diferencia entre Internet y la World Wide Web?</h3>
+        <p>Internet es la red global de computadoras conectadas, mientras que la World Wide Web es un sistema de información accesible a través de Internet.</p>
+
+        <h3>¿Cuáles son las partes de un URL?</h3>
+        <p>Las partes de un URL incluyen el esquema (protocolo), dominio, puerto (opcional), ruta, consulta y fragmento.</p>
+
+        <h3>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</h3>
+        <p>GET obtiene recursos, HEAD obtiene encabezados, POST envía datos, PUT reemplaza, PATCH modifica y DELETE borra.</p>
+
+        <h3>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</h3>
+        <p>Se usa POST porque envía datos de manera segura sin mostrarlos en la URL.</p>
+
+        <h3>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</h3>
+        <p>Se usa el método GET para solicitar y recibir el contenido de la página.</p>
+
+        <h3>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</h3>
+        <p>El código 200 indica que la solicitud fue exitosa y no hubo error.</p>
+
+        <h3>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</h3>
+        <p>Depende. Si la URL es incorrecta, no es culpa del desarrollador. Si la página fue eliminada sin redirección, sí.</p>
+
+        <h3>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</h3>
+        <p>Sí, un error 500 indica un problema en el servidor, lo que generalmente es responsabilidad del desarrollador.</p>
+
+        <h3>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</h3>
+        <p>Significa que su uso ya no se recomienda. Ejemplos: &lt;font&gt;, &lt;center&gt;, &lt;acronym&gt;.</p>
+
+        <h3>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</h3>
+        <p>HTML5 introduce nuevas etiquetas semánticas, APIs nativas y elimina atributos de presentación.</p>
+
+        <h3>¿Qué componentes de estructura y estilo tiene una tabla?</h3>
+        <p>Componentes: &lt;table&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;. Se estiliza con CSS.</p>
+
+        <h3>¿Cuáles son los principales controles de una forma HTML5?</h3>
+        <p>Input types avanzados (email, date, color), etiquetas &lt;datalist&gt;, &lt;output&gt;, &lt;progress&gt;.</p>
+
+        <h3>¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</h3>
+        <p>Tengo chrome y cuenta con soporte en su totalidad para HTML5 .</p>
+
+    </div>
+    <div class="form-container">
+        <form id="emailForm">
+            <h2>CONTACT ME</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+          <button type="submit" onclick="sendEmail()">Enviar</button>
+        </form>
+    </div>
     <footer>
-        
+        Todos los derechos reservados | @ian.hdzzz
     </footer>
 </body>
 </html>
