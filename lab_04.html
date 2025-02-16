@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4</title>
+    <link rel="stylesheet" href="./styles/lab_04.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+
+    <h1>Lab 04 | JavaScript</h1>
+        <div class="contenedor" id="problemas15">
+            <h1>Problemas 1-5</h1>
+            <button onclick="ejercicio1()">Ejercicio 1</button>
+            <button onclick="ejercicio2()">Ejercicio 2</button>
+            <button onclick="ejercicio3()">Ejercicio 3</button>
+            <button onclick="ejercicio4()">Ejercicio 4</button>
+            <button onclick="ejercicio5()">Ejercicio 5</button>
+        </div>
+
+   <div class="contenedor problema6">
+    <h1>Problemas 6</h1>
+    <h1>Cuenta Bancaria</h1>
+
+    <p>Saldo Actual: <span id="saldo">0</span></p>
+
+    <input type="number" id="monto" placeholder="Monto a depositar o retirar">
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="retirar()">Retirar</button>
+
+    <div id="mensaje"></div> <!-- Aquí se mostrarán mensajes de la operación -->
+
+    <script>
+        // Objeto CuentaBancaria con métodos para depositar y retirar dinero
+        function CuentaBancaria(saldoInicial) {
+            this.saldo = saldoInicial;
+
+            // Método para depositar dinero
+            this.depositar = function(monto) {
+                if (monto > 0) {
+                    this.saldo += monto;
+                    return `Depositaste $${monto}. Nuevo saldo: $${this.saldo}`;
+                } else {
+                    return "El monto a depositar debe ser mayor que cero.";
+                }
+            };
+
+            // Método para retirar dinero
+            this.retirar = function(monto) {
+                if (monto > 0 && monto <= this.saldo) {
+                    this.saldo -= monto;
+                    return `Retiraste $${monto}. Nuevo saldo: $${this.saldo}`;
+                } else if (monto > this.saldo) {
+                    return "No tienes suficiente saldo para realizar esta operación.";
+                } else {
+                    return "El monto a retirar debe ser mayor que cero.";
+                }
+            };
+        }
+
+        // Crear una nueva instancia de CuentaBancaria con saldo inicial de 100
+        const cuenta = new CuentaBancaria(100);
+
+        // Función para depositar dinero
+        function depositar() {
+            const monto = parseFloat(document.getElementById("monto").value);
+            const mensaje = cuenta.depositar(monto);
+
+            // Mostrar el mensaje en el DOM
+            document.getElementById("mensaje").textContent = mensaje;
+            document.getElementById("saldo").textContent = cuenta.saldo;
+        }
+
+        // Función para retirar dinero
+        function retirar() {
+            const monto = parseFloat(document.getElementById("monto").value);
+            const mensaje = cuenta.retirar(monto);
+
+            // Mostrar el mensaje en el DOM
+            document.getElementById("mensaje").textContent = mensaje;
+            document.getElementById("saldo").textContent = cuenta.saldo;
+        }
+    </script>
+   </div>
+   <div class=" contenedor preguntas">
+       <h1>Preguntas a Resolver | JS</h1>
+       <h4>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h4>
+       <p>Java es un lenguaje de programación compilado y orientado a objetos, mientras que JavaScript es interpretado y se usa principalmente para desarrollo web. Ambos comparten una sintaxis similar, pero Java es más estricto en tipado y estructura.</p>
+       <h4>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</h4>
+        <p>Algunos métodos del objeto Date incluyen getFullYear() para obtener el año, getMonth() para obtener el mes, getDate() para el día, getHours() para las horas y getMinutes() para los minutos.</p>
+       <h4>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</h4>
+       <p>Los arreglos tienen métodos como push() para agregar elementos al final, pop() para eliminar el último elemento, shift() para eliminar el primero, unshift() para agregar al principio, y forEach() para recorrer los elementos.</p>
+       <h4>¿Cómo se declara una variable con alcance local dentro de una función?</h4>
+       <p> Se declara con let o const dentro de la función. Esto limita su uso al contexto de esa función y no afecta al resto del programa.</p>
+       <h4>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h4>
+       <p> El uso de variables globales puede causar confusión, errores imprevistos y sobrescritura de valores. Además, dificulta el mantenimiento del código debido a su alcance global.</p>
+
+    </div>
+</div>
+    <script src="./js/lab_04.js"></script>
+</body>
+</html> 

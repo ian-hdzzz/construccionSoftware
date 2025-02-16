@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.contenedor-principal{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+h1{
+    margin: 40px auto;
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%;
+    margin: auto;
+    height: auto;
+    border-radius: 20px;
+    background: rgb(244, 244, 244);
+    align-items: center;
+}
+.contenedor button, input{
+    margin: 20px auto;
+    width: 30%;
+    border-radius: 20px;
+    padding: 20px;
+    border: none;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+ }
+
+.preguntas{
+    padding:50px;
+    align-items: flex-start;
+}
+.preguntas p{
+    margin: 30px auto;
+}
