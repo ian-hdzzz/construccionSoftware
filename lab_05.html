@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+   <!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
+<div class="min-h-full">
+  <nav class="bg-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center">
+          <div class="shrink-0">
+            <img class="size-8" src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Dashboard</a>
+              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
+            </div>
+          </div>
+        </div>
+       
+
+
+  </nav>
+
+  <header class="bg-white shadow-sm">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900">Lab 05  |  Frameworks </h1>
+    </div>
+  </header>
+  <main>
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <!-- Your content -->
+
+      <div class="justify-center">
+        <div class="flex-row justify-center bg-[#1D1F29] rounded-2xl p-4 m-8 text-[#fff] shadow-xl">
+            <h1 class=" font-bold text-2xl py-4 px-0">Mis pasiones</h1>
+            <p><strong>Deporte</strong></br>Gran parte de mi vida practique artes marciales (TKD) representando a mi estado, una disciplina que más alla de lo deportivo formó la persona que soy hoy, la mentalidad y caracter.
+            <p><strong>Música</strong></br>Desde pequeño siempre me ha gustado la música, siempre que puedo trato de volver a tomar la guitarra y el piano un rato, he participado en algunas presentaciones en público y creo que la música es la que le da balance a mi vida</p>
+        </div>
+        <div id="proyects" class="flex-row justify-center bg-[#1D1F29] rounded-2xl p-4 m-8 text-[#fff] shadow-xl">
+            <h1  class="font-bold text-2xl py-4 px-0">Proyectos</h1>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2 class="font-bold py-4 px-0">PSB | Proyecto IoT</h2>
+                    <img src="./img/PSB.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Proyecto IoT, página web programada con Express JS y conectada a base de datos MySQL para autenticación de usuario y encriptación de contraseñas. Esta aplicaicón recibe información de sensores de pulsos electromagnéticos y GPS para enviarlos a una base de datos en la nube (Ubidots) con posibilidad de guardarlo en la base de datos local.</p>
+                    <a class="button uno" href="https://proyectoiot-production.up.railway.app/home">Ir al sitio</a>
+                    <a class="button dos"  href="https://github.com/IAN-coder-12/proyectoIoT.git ">Codigo Git Hub</a>
+                </div>
+            </div>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2 class="font-bold py-4 px-0">CVDP Página Web </h2>
+                    <img src="./img/cvdp.jpg" alt="">
+                </div>
+                <div class="info">
+                    <p>Sitio web del CVDP Campus Qro para mejorar el servicios y la atención a alumnos a punto de graduarse y potenciar su vida profesional. Este sitio fue programado en React JS</p>
+                    <a class="button uno" href="https://ian-hdzzz.github.io/cvdp_site/#/home" >Ir al sitio</a>
+                    <a class="button dos" href="https://github.com/ian-hdzzz/cvdp_qro">Código Git Hub</a>
+                </div>
+            </div>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2 class="font-bold py-4 px-0">Neolen | Hackaton Fintech 2024</h2>
+                    <img src="./img/neolen.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Prototipo de interfaz (MVP) de aplicación fintech, ganadora del Hackathon "Fintech4All" con pase al Hackathon mundial en Suiza 2025.</p>
+                    <a class="button uno" href="https://www.figma.com/proto/oQif6WfnRU0ulOyfWL6xaW/Neolen?node-id=1-7&starting-point-node-id=1%3A7&t=5DAXYVHytwlcg5zz-1">Prototipo Interfaz MVP</a>
+                </div>
+            </div>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2>Chatbot de IA para el CVDP Qro</h2>
+                    <img src="./img/chatbot.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Asistente de Inteligencia Artificial configurada en los servidores de META para funcionar en Whatsapp consumiendo la API de OpenAI (Chat GPT). </p>
+                    <a class="button uno" href="https://wa.me/7716072537?text=Hola"> Chatbot</a>
+                    <a class="button dos" href="https://github.com/ian-hdzzz/chabotIA_CVDP">Codigo Git Hub</a>
+                </div>
+            </div>
+            <div  data-aos="fade-up" class="target">
+                <div class="title">
+                    <h2 class="font-bold py-4 px-0"> PRIME TOUR | Servicio Streaming </h2>
+                    <img src="./img/primeTour.png" alt="">
+                </div>
+                <div class="info">
+                    <p>Servicio de Streaming de conciertos y artistas programado en C++, sin embargo se combinó con HTML, CSS y JS para dar estilo a la web.</p>
+                    <a class="button uno" href="https://ian-hdzzz.github.io/primeTour/index.html ">Ir al sitio</a>
+                    <a class="button dos" href="https://github.com/ian-hdzzz/primeTour">Codigo Git Hub</a>
+                </div>
+            </div>
+        </div>
+   
+        <div class="isolate bg-white px-6 py-20 sm:py-25 lg:px-8">
+         
+          </div>
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">Contact Me</h2>
+            <p class="mt-2 text-lg/8 text-gray-600">Hola profeeee. Wueeeenos días</p>
+          </div>
+          <form action="#" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
+            <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+              <div>
+                <label for="first-name" class="block text-sm/6 font-semibold text-gray-900">First name</label>
+                <div class="mt-2.5">
+                  <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
+                </div>
+              </div>
+              <div>
+                <label for="last-name" class="block text-sm/6 font-semibold text-gray-900">Last name</label>
+                <div class="mt-2.5">
+                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="company" class="block text-sm/6 font-semibold text-gray-900">Company</label>
+                <div class="mt-2.5">
+                  <input type="text" name="company" id="company" autocomplete="organization" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="email" class="block text-sm/6 font-semibold text-gray-900">Email</label>
+                <div class="mt-2.5">
+                  <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="phone-number" class="block text-sm/6 font-semibold text-gray-900">Phone number</label>
+                <div class="mt-2.5">
+                  <div class="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+                    <div class="grid shrink-0 grid-cols-1 focus-within:relative">
+                      <select id="country" name="country" autocomplete="country" aria-label="Country" class="col-start-1 row-start-1 w-full appearance-none rounded-md py-2 pr-7 pl-3.5 text-base text-gray-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                        <option>MX</option>
+                        <option>US</option>
+                        <option>CA</option>
+                        <option>EU</option>
+                      </select>
+                      <svg class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <input type="text" name="phone-number" id="phone-number" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="123-456-7890">
+                  </div>
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="message" class="block text-sm/6 font-semibold text-gray-900">Message</label>
+                <div class="mt-2.5">
+                  <textarea name="message" id="message" rows="4" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"></textarea>
+                </div>
+              </div>
+              <div class="flex gap-x-4 sm:col-span-2">
+                <div class="flex h-6 items-center">
+                  <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+                  <button type="button" class="flex w-8 flex-none cursor-pointer rounded-full bg-gray-200 p-px ring-1 ring-gray-900/5 transition-colors duration-200 ease-in-out ring-inset focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" role="switch" aria-checked="false" aria-labelledby="switch-1-label">
+                    <span class="sr-only">Agree to policies</span>
+                    <!-- Enabled: "translate-x-3.5", Not Enabled: "translate-x-0" -->
+                    <span aria-hidden="true" class="size-4 translate-x-0 transform rounded-full bg-white ring-1 shadow-xs ring-gray-900/5 transition duration-200 ease-in-out"></span>
+                  </button>
+                </div>
+                <label class="text-sm/6 text-gray-600" id="switch-1-label">
+                  By selecting this, you agree to our
+                  <a href="#" class="font-semibold text-indigo-600">privacy&nbsp;policy</a>.
+                </label>
+              </div>
+            </div>
+            <div class="mt-10">
+              <button type="submit" class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enviar</button>
+            </div>
+          </form>
+        </div>
+        
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
