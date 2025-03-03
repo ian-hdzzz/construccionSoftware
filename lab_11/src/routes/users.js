@@ -7,12 +7,12 @@ const router = express.Router();
 
 // Ruta para listar usuarios
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/users/list.html'));
+  res.render('users/list');
 });
 
 // Ruta para mostrar formulario de registro
 router.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/users/register.html'));
+  res.render('users/register');
 });
 
 // Ruta para procesar el formulario (POST)
@@ -40,11 +40,11 @@ router.post('/register', (req, res) => {
     `${userData.date} - Nombre: ${userData.name}, Email: ${userData.email}\n`, 
     (err) => {
       if (err) {
-        return res.status(500).sendFile(path.join(__dirname, '../views/users/error.html'));
+        return res.status(500).sendFile(path.join(__dirname, '../views/users/error.hbs'));
       }
       
       // Redirigir a la página de éxito
-      res.sendFile(path.join(__dirname, '../views/users/success.html'));
+      res.sendFile(path.join(__dirname, '../views/users/success.hbs'));
     }
   );
 });
@@ -53,7 +53,7 @@ router.post('/register', (req, res) => {
 router.get('/:id', (req, res) => {
   // Aquí normalmente buscaríamos el usuario en una base de datos
   // Para este ejemplo, simplemente enviamos la vista de detalles
-  res.sendFile(path.join(__dirname, '../views/users/detail.html'));
+  res.sendFile(path.join(__dirname, '../views/users/detail.hbs'));
 });
 
 module.exports = router;

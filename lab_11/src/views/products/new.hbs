@@ -1,0 +1,76 @@
+
+    <section class="section">
+      <div class="container">
+        <h1 class="title is-2 has-text-primary">Añadir nuevo producto</h1>
+        
+        <div class="box">
+          <form action="/products" method="POST">
+            <div class="field">
+              <label class="label" for="name">Nombre del producto</label>
+              <div class="control">
+                <input class="input" type="text" id="name" name="name" placeholder="Nombre del producto" required>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label" for="price">Precio</label>
+              <div class="control has-icons-left">
+                <input class="input" type="number" id="price" name="price" placeholder="Precio" step="0.01" required>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-dollar-sign"></i>
+                </span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label" for="description">Descripción</label>
+              <div class="control">
+                <textarea class="textarea" id="description" name="description" placeholder="Descripción del producto"></textarea>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">Categoría</label>
+              <div class="control">
+                <div class="select">
+                  <select name="category">
+                    <option value="electronics">Electrónica</option>
+                    <option value="clothing">Ropa</option>
+                    <option value="food">Alimentación</option>
+                    <option value="books">Libros</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox" name="inStock">
+                  En stock
+                </label>
+              </div>
+            </div>
+            
+            <div class="field is-grouped">
+              <div class="control">
+                <button type="submit" class="button is-primary">
+                  <span class="icon">
+                    <i class="fas fa-save"></i>
+                  </span>
+                  <span>Guardar producto</span>
+                </button>
+              </div>
+              <div class="control">
+                <a href="/products" class="button is-link is-light">
+                  <span class="icon">
+                    <i class="fas fa-arrow-left"></i>
+                  </span>
+                  <span>Volver a productos</span>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>

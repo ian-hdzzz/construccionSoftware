@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan  = require('morgan');
 const path = require('path');
+const  { create, engine } = require('express-handlebars');
 
 // initialitations
 const app = express();
@@ -9,18 +10,20 @@ const app = express();
 app.set('port', process.env.PORT || 4002);
 app.set('views', path.join(__dirname, 'views'));
 
-app.set('view engine', 'html');
-app.engine('html', function (filePath, options, callback) {
-  fs.readFile(filePath, function (err, content) {
-    if (err) return callback(err);
-    return callback(null, content.toString());
-  });
+const exphbs = create({
+  defaultLayout: 'main',
+  layoutsDir: path.join(__dirname, 'views'),
+  partialsDir: path.join(__dirname, 'views', 'partials'),
+  extname: '.hbs'
 });
+
+app.engine('.hbs', exphbs.engine); 
+app.set('view engine', '.hbs');
 
 // middlewares
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
-// app.use(express.json());
+app.use(express.json());
 app.use(express.static('public'));
 
 
@@ -31,11 +34,11 @@ app.use('/users', require('./routes/users'));
 
 // Ruta principal
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/home.html'));
+  res.render('home');
 });
 // Manejador para rutas no encontradas (404)
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, '/views/404.html'));
+  res.status(404).render('404');
 });
 // public
 app.use(express.static(path.join(__dirname, 'public')));
