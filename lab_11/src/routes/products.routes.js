@@ -1,7 +1,6 @@
 // routes/products.js - Módulo de rutas para productos
 
 const express = require('express');
-const path = require('path');
 const router = express.Router();
 
 // Ruta para listar productos

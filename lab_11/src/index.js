@@ -16,7 +16,6 @@ const exphbs = create({
   partialsDir: path.join(__dirname, 'views', 'partials'),
   extname: '.hbs'
 });
-
 app.engine('.hbs', exphbs.engine); 
 app.set('view engine', '.hbs');
 
@@ -26,20 +25,21 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(express.static('public'));
 
-
-
 // routes 
-app.use('/products', require('./routes/products'));
-app.use('/users', require('./routes/users'));
+app.use('/products', require('./routes/products.routes'));
+app.use('/users', require('./routes/user.routes'));
+app.use('/login', require('./routes/login.routes'));
 
 // Ruta principal
 app.get('/', (req, res) => {
   res.render('home');
 });
+
 // Manejador para rutas no encontradas (404)
 app.use((req, res) => {
   res.status(404).render('404');
 });
+
 // public
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -1,3 +1,7 @@
-Lab 09 25/02/25
+Lab 09 24/02/24
+Omar Casillas 
+https://github.com/Elmay05/Construccion-de-software/commit/85e80715fb3981c75afea0aa87c530c34f0720a8 
+
+Lab 10 25/02/25
 Omar Casillas 
 https://github.com/Elmay05/Construccion-de-software/commit/3b1c6644dcd21f2b722b2e6aa1ce6af1866d57eb 
