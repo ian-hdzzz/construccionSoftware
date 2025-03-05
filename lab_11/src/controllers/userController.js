@@ -14,24 +14,17 @@ class UserController {
   
     // Procesar registro de usuario
     register(req, res) {
-      try {
-        const userData = {
-          name: req.body.name,
-          email: req.body.email,
-          password: req.body.password
-        };
+      const userData = {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+      };
   
-        // Crear usuario
-        const newUser = UserRepository.create(userData);
+      // Crear usuario
+      const newUser = UserRepository.create(userData);
   
-        // Redirigir a lista de usuarios
-        res.redirect('/users');
-      } catch (error) {
-        // Manejo de errores
-        res.status(400).render('users/register', { 
-          error: error.message 
-        });
-      }
+      // Redirigir a lista de usuarios
+      res.redirect('/users');
     }
   
     // Mostrar detalle de usuario
