@@ -4,12 +4,19 @@ class UserController {
     // Listar todos los usuarios
     list(req, res) {
       const users = UserRepository.findAll();
-      res.render('users/list', { users });
+      res.render('users/list', { 
+        users,
+        isLoggedIn: req.session.isLoggedIn || false,
+        usuario: req.session.email
+      });
     }
   
     // Mostrar formulario de registro
     showRegisterForm(req, res) {
-      res.render('users/register');
+      res.render('users/register', {
+        usuario: req.session.email,
+        isLoggedIn: req.session.isLoggedIn || false,
+    });
     }
   
     // Procesar registro de usuario
@@ -32,7 +39,11 @@ class UserController {
       const user = UserRepository.findById(req.params.id);
       
       if (user) {
-        res.render('users/detail', { user });
+        res.render('users/detail',{
+          user,
+          usuario: req.session.email,
+          isLoggedIn: req.session.isLoggedIn || false,
+      });
       } else {
         res.status(404).send('Usuario no encontrado');
       }

@@ -2,6 +2,8 @@ const express = require('express');
 const morgan  = require('morgan');
 const path = require('path');
 const  { create, engine } = require('express-handlebars');
+const session = require('express-session');
+
 
 // initialitations
 const app = express();
@@ -21,9 +23,14 @@ app.set('view engine', '.hbs');
 
 // middlewares
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(express.static('public'));
+app.use(session({
+  secret: 'ian', 
+  resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
+  saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
+}));
 
 // routes 
 app.use('/products', require('./routes/products.routes'));

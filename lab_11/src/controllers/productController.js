@@ -4,12 +4,19 @@ class ProductController {
   // Listar todos los productos
   list(req, res) {
     const products = ProductRepository.findAll();
-    res.render('products/list', { products });
+    res.render('products/list', {
+      products,
+      usuario: req.session.email,
+      isLoggedIn: req.session.isLoggedIn || false,
+  });
   }
 
   // Mostrar formulario de nuevo producto
   showNewProductForm(req, res) {
-    res.render('products/new');
+    res.render('products/new', {
+      usuario: req.session.email,
+      isLoggedIn: req.session.isLoggedIn || false,
+  });
   }
 
   // Procesar creación de nuevo producto
@@ -32,7 +39,11 @@ class ProductController {
     const product = ProductRepository.findById(req.params.id);
     
     if (product) {
-      res.render('products/detail', { product });
+      res.render('products/detail', {
+        product,
+        usuario: req.session.email,
+        isLoggedIn: req.session.isLoggedIn || false,
+    });
     } else {
       res.status(404).send('Producto no encontrado');
     }

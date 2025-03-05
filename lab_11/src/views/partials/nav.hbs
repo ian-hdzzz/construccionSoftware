@@ -18,7 +18,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a href="/" class="navbar-item">
         Home
       </a>
 
@@ -52,12 +52,18 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
+          {{#if usuario}}
+              <a href="/login/logout" class="button is-red">
+                Log out
+              </a>
+          {{ else }}
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a href="/login" class="button is-light">
+                Log in
+              </a>
+           {{/if}}
         </div>
       </div>
     </div>

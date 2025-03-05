@@ -1,27 +1,28 @@
-<div class="field m-auto column is-4">
+<form id="loginForm" method="POST" action="login">
+  <div class="field m-auto column is-4">
     <h1 class="is-size-3 has-text-centered has-text-weight-bold m-6">LogIn</h1>
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Email">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field m-auto column is-4">
-  <p class="control has-icons-left">
-    <input class="input" type="password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field m-auto column is-4">
-  <p class="control ">
-    <button class="button is-success">
-      Login
-    </button>
-  </p>
-</div>
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" type="email" name="email" id="email" placeholder="Email" required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+    </p>
+  </div>
+  
+  <div class="field m-auto column is-4">
+    <p class="control has-icons-left">
+      <input class="input" type="password" name="password" id="password" placeholder="Password" required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
+  </div>
+  
+  <div class="field m-auto column is-4">
+    <p class="control">
+      <button class="button is-success" type="submit" id="loginButton">
+        Login
+      </button>
+    </p>
+  </div>
+</form>
