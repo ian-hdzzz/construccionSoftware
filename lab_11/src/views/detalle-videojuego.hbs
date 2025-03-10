@@ -1,0 +1,149 @@
+
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <strong>GameShop</strong>
+            </a>
+            
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/videojuegos">
+                    Videojuegos
+                </a>
+            </div>
+            
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a href="/videojuegos/nuevo" class="button is-light">
+                            <span class="icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                            <span>Nuevo Videojuego</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="section">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/videojuegos">Videojuegos</a></li>
+                    <li class="is-active"><a href="#" aria-current="page">{{videojuego.nombre}}</a></li>
+                </ul>
+            </nav>
+            
+            <div class="columns">
+                <div class="column is-4">
+                    <figure class="image is-square">
+                        <img src="https://bulma.io/images/placeholders/480x480.png" alt="{{videojuego.nombre}}">
+                    </figure>
+                </div>
+                
+                <div class="column is-8">
+                    <h1 class="title is-2">{{videojuego.nombre}}</h1>
+                    
+                    <div class="tags">
+                        <span class="tag is-medium is-primary">{{videojuego.plataforma}}</span>
+                        {{#if videojuego.genero}}
+                            <span class="tag is-medium is-info">{{videojuego.genero}}</span>
+                        {{/if}}
+                        {{#if videojuego.clasificacion}}
+                            <span class="tag is-medium is-warning">{{videojuego.clasificacion}}</span>
+                        {{/if}}
+                    </div>
+                    
+                    <div class="content">
+                        <div class="field">
+                            <label class="label">Desarrollador</label>
+                            <div class="control">
+                                <p>{{#if videojuego.desarrollador}}{{videojuego.desarrollador}}{{else}}No especificado{{/if}}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="field">
+                            <label class="label">Fecha de Lanzamiento</label>
+                            <div class="control">
+                                <p>{{#if videojuego.fecha_lanzamiento}}{{formatDate videojuego.fecha_lanzamiento}}{{else}}No especificada{{/if}}</p>
+                            </div>
+                        </div>
+                        
+                        {{#if videojuego.precio}}
+                            <div class="field">
+                                <label class="label">Precio</label>
+                                <div class="control">
+                                    <p class="has-text-weight-bold has-text-success is-size-4">
+                                        ${{formatPrice videojuego.precio}}
+                                    </p>
+                                </div>
+                            </div>
+                        {{/if}}
+                        
+                        <div class="field">
+                            <label class="label">Estado</label>
+                            <div class="control">
+                                {{#if videojuego.en_stock}}
+                                    <span class="tag is-success is-medium">Disponible</span>
+                                {{else}}
+                                    <span class="tag is-danger is-medium">Agotado</span>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="/videojuegos/{{videojuego.id}}/editar" class="button is-link">
+                            <span class="icon">
+                                <i class="fas fa-edit"></i>
+                            </span>
+                            <span>Editar</span>
+                        </a>
+                        <a href="/videojuegos" class="button is-light">
+                            <span class="icon">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                            <span>Volver</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>GameShop</strong> © {{currentYear}} - Aplicación de ejemplo con Node.js, Express y MySQL
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Funcionalidad para el menú hamburguesa en móviles
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach( el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>

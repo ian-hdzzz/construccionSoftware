@@ -1,0 +1,261 @@
+
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <strong>GameShop</strong>
+            </a>
+            
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/videojuegos">
+                    Videojuegos
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="section">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/videojuegos">Videojuegos</a></li>
+                    <li class="is-active"><a href="#" aria-current="page">
+                        {{#if editar}}Editar {{videojuego.nombre}}{{else}}Nuevo Videojuego{{/if}}
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <div class="columns">
+                <div class="column is-8 is-offset-2">
+                    <div class="box">
+                        <h1 class="title is-3 has-text-centered">
+                            {{#if editar}}Editar Videojuego{{else}}Nuevo Videojuego{{/if}}
+                        </h1>
+                        
+                        <form method="POST" action="{{#if editar}}/videojuegos/{{videojuego.id}}{{else}}/videojuegos{{/if}}">
+                            <div class="field">
+                                <label class="label">Nombre</label>
+                                <div class="control">
+                                    <input 
+                                        class="input" 
+                                        type="text" 
+                                        name="nombre" 
+                                        placeholder="Nombre del videojuego" 
+                                        value="{{#if editar}}{{videojuego.nombre}}{{/if}}" 
+                                        required
+                                    >
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Plataforma</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select name="plataforma" required>
+                                            <option value="" disabled {{#unless editar}}selected{{/unless}}>
+                                                Selecciona una plataforma
+                                            </option>
+                                            <option value="PC" {{#if editar}}{{#eq videojuego.plataforma "PC"}}selected{{/eq}}{{/if}}>
+                                                PC
+                                            </option>
+                                            <option value="PlayStation 5" {{#if editar}}{{#eq videojuego.plataforma "PlayStation 5"}}selected{{/eq}}{{/if}}>
+                                                PlayStation 5
+                                            </option>
+                                            <option value="PlayStation 4" {{#if editar}}{{#eq videojuego.plataforma "PlayStation 4"}}selected{{/eq}}{{/if}}>
+                                                PlayStation 4
+                                            </option>
+                                            <option value="Xbox Series X" {{#if editar}}{{#eq videojuego.plataforma "Xbox Series X"}}selected{{/eq}}{{/if}}>
+                                                Xbox Series X
+                                            </option>
+                                            <option value="Xbox One" {{#if editar}}{{#eq videojuego.plataforma "Xbox One"}}selected{{/eq}}{{/if}}>
+                                                Xbox One
+                                            </option>
+                                            <option value="Nintendo Switch" {{#if editar}}{{#eq videojuego.plataforma "Nintendo Switch"}}selected{{/eq}}{{/if}}>
+                                                Nintendo Switch
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Género</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select name="genero">
+                                            <option value="" {{#if editar}}{{#unless videojuego.genero}}selected{{/unless}}{{else}}selected{{/if}}>
+                                                Sin especificar
+                                            </option>
+                                            <option value="Acción" {{#if editar}}{{#eq videojuego.genero "Acción"}}selected{{/eq}}{{/if}}>
+                                                Acción
+                                            </option>
+                                            <option value="Aventura" {{#if editar}}{{#eq videojuego.genero "Aventura"}}selected{{/eq}}{{/if}}>
+                                                Aventura
+                                            </option>
+                                            <option value="RPG" {{#if editar}}{{#eq videojuego.genero "RPG"}}selected{{/eq}}{{/if}}>
+                                                RPG
+                                            </option>
+                                            <option value="Simulación" {{#if editar}}{{#eq videojuego.genero "Simulación"}}selected{{/eq}}{{/if}}>
+                                                Simulación
+                                            </option>
+                                            <option value="Estrategia" {{#if editar}}{{#eq videojuego.genero "Estrategia"}}selected{{/eq}}{{/if}}>
+                                                Estrategia
+                                            </option>
+                                            <option value="Deportes" {{#if editar}}{{#eq videojuego.genero "Deportes"}}selected{{/eq}}{{/if}}>
+                                                Deportes
+                                            </option>
+                                            <option value="Carreras" {{#if editar}}{{#eq videojuego.genero "Carreras"}}selected{{/eq}}{{/if}}>
+                                                Carreras
+                                            </option>
+                                            <option value="FPS" {{#if editar}}{{#eq videojuego.genero "FPS"}}selected{{/eq}}{{/if}}>
+                                                FPS
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Desarrollador</label>
+                                <div class="control">
+                                    <input 
+                                        class="input" 
+                                        type="text" 
+                                        name="desarrollador" 
+                                        placeholder="Empresa desarrolladora" 
+                                        value="{{#if editar}}{{videojuego.desarrollador}}{{/if}}"
+                                    >
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Fecha de Lanzamiento</label>
+                                <div class="control">
+                                    <input 
+                                        class="input" 
+                                        type="date" 
+                                        name="fecha_lanzamiento" 
+                                        value="{{#if editar}}{{formatDateValue videojuego.fecha_lanzamiento}}{{/if}}"
+                                    >
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Clasificación</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select name="clasificacion">
+                                            <option value="" {{#if editar}}{{#unless videojuego.clasificacion}}selected{{/unless}}{{else}}selected{{/if}}>
+                                                Sin especificar
+                                            </option>
+                                            <option value="E" {{#if editar}}{{#eq videojuego.clasificacion "E"}}selected{{/eq}}{{/if}}>
+                                                E (Para todos)
+                                            </option>
+                                            <option value="E10+" {{#if editar}}{{#eq videojuego.clasificacion "E10+"}}selected{{/eq}}{{/if}}>
+                                                E10+ (Mayores de 10 años)
+                                            </option>
+                                            <option value="T" {{#if editar}}{{#eq videojuego.clasificacion "T"}}selected{{/eq}}{{/if}}>
+                                                T (Adolescentes)
+                                            </option>
+                                            <option value="M" {{#if editar}}{{#eq videojuego.clasificacion "M"}}selected{{/eq}}{{/if}}>
+                                                M (Maduro)
+                                            </option>
+                                            <option value="AO" {{#if editar}}{{#eq videojuego.clasificacion "AO"}}selected{{/eq}}{{/if}}>
+                                                AO (Solo adultos)
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Precio</label>
+                                <div class="control">
+                                    <input 
+                                        class="input" 
+                                        type="number" 
+                                        name="precio" 
+                                        step="0.01" 
+                                        min="0" 
+                                        placeholder="0.00" 
+                                        value="{{#if editar}}{{videojuego.precio}}{{/if}}"
+                                    >
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <div class="control">
+                                    <label class="checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            name="en_stock"
+                                            {{#if editar}}
+                                                {{#if videojuego.en_stock}}checked{{/if}}
+                                            {{else}}
+                                                checked
+                                            {{/if}}
+                                        >
+                                        Disponible en stock
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="field is-grouped mt-5">
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">
+                                        <span class="icon">
+                                            <i class="fas fa-save"></i>
+                                        </span>
+                                        <span>{{#if editar}}Actualizar{{else}}Guardar{{/if}}</span>
+                                    </button>
+                                </div>
+                                <div class="control">
+                                    <a href="/videojuegos" class="button is-light">
+                                        <span class="icon">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                        <span>Cancelar</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>GameShop</strong> © {{currentYear}} - Aplicación de ejemplo con Node.js, Express y MySQL
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Funcionalidad para el menú hamburguesa en móviles
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach( el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>

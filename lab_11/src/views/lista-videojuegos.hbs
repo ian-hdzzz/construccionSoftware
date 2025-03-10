@@ -1,0 +1,119 @@
+
+<body>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <strong>GameShop</strong>
+            </a>
+            
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/videojuegos">
+                    Videojuegos
+                </a>
+            </div>
+            
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a href="/videojuegos/nuevo" class="button is-light">
+                            <span class="icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                            <span>Nuevo Videojuego</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Catálogo de Videojuegos</h1>
+            <h2 class="subtitle">Explora nuestra colección</h2>
+            
+            {{#if videojuegos.length}}
+                <div class="columns is-multiline">
+                    {{#each videojuegos}}
+                        <div class="column is-3">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-3by2">
+                                        <img src="https://bulma.io/images/placeholders/480x320.png" alt="Placeholder image">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <p class="title is-4">{{this.nombre}}</p>
+                                            <p class="subtitle is-6">{{this.plataforma}}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="content">
+                                        {{#if this.genero}}
+                                            <span class="tag is-info">{{this.genero}}</span>
+                                        {{/if}}
+                                        {{#if this.clasificacion}}
+                                            <span class="tag is-warning">{{this.clasificacion}}</span>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <footer class="card-footer">
+                                    <a href="/videojuegos/{{this.id}}" class="card-footer-item">Ver</a>
+                                    <a href="/videojuegos/{{this.id}}/editar" class="card-footer-item">Editar</a>
+                                </footer>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            {{else}}
+                <div class="notification is-warning">
+                    <p>No hay videojuegos disponibles. ¡Agrega uno nuevo!</p>
+                </div>
+                <div class="buttons">
+                    <a href="/videojuegos/nuevo" class="button is-primary">
+                        <span class="icon">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span>Agregar Videojuego</span>
+                    </a>
+                </div>
+            {{/if}}
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>GameShop</strong> © {{currentYear}} - Aplicación de ejemplo con Node.js, Express y MySQL
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Funcionalidad para el menú hamburguesa en móviles
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach( el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>

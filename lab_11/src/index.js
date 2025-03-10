@@ -38,7 +38,7 @@ app.use(cookieParser());
 app.use('/products', require('./routes/products.routes'));
 app.use('/users', require('./routes/user.routes'));
 app.use('/login', require('./routes/login.routes'));
-
+app.use('/videojuegos', require('./routes/videojuegos.routes'));
 
 // Ruta principal
 app.use('/', require('./routes/login.routes'));
