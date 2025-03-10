@@ -3,6 +3,7 @@ const morgan  = require('morgan');
 const path = require('path');
 const  { create, engine } = require('express-handlebars');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 
 // initialitations
@@ -31,16 +32,16 @@ app.use(session({
   resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
   saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
 }));
+app.use(cookieParser());
 
 // routes 
 app.use('/products', require('./routes/products.routes'));
 app.use('/users', require('./routes/user.routes'));
 app.use('/login', require('./routes/login.routes'));
 
+
 // Ruta principal
-app.get('/', (req, res) => {
-  res.render('home');
-});
+app.use('/', require('./routes/login.routes'));
 
 // Manejador para rutas no encontradas (404)
 app.use((req, res) => {
