@@ -1,4 +1,4 @@
-const db = require('../../db/database');
+const db = require('../../util/database');
 const bcrypt = require('bcryptjs');
 
 module.exports = class User {
@@ -30,6 +30,26 @@ module.exports = class User {
     } else {
         return this.fetchAll();
     }
+  }
+  static getPrivilegios(email) {  // Changed from username to email
+    return db.execute(
+      `SELECT p.nombre 
+       FROM privilegios p, rol_privilegio rp, roles r, 
+           usuario_rol ur, users u
+       WHERE p.id=rp.privilegio_id AND rp.rol_id=r.id 
+           AND r.id=ur.rol_id AND ur.usuario_id=u.id 
+           AND u.email=?`, 
+      [email]);  // Make sure parameter name matches
+  }
+  static assignRoleToUser(email, roleName) {
+    return db.execute(
+      `INSERT INTO usuario_rol (usuario_id, rol_id)
+       SELECT u.id, r.id 
+       FROM users u, roles r 
+       WHERE u.email = ? AND r.nombre = ?`,
+      [email, roleName]
+    );
+  }
 }
-}
+
 

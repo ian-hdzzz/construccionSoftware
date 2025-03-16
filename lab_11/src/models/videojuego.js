@@ -1,4 +1,4 @@
-const db = require('../../db/database');
+const db = require('../../util/database');
 
 module.exports = class Videojuego {
     constructor(nombre, plataforma) {

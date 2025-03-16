@@ -37,6 +37,13 @@ app.use(cookieParser());
 app.use(csrfProtection); 
 app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
+  
+  // Add permission checks for templates
+  if (req.session.privilegios) {
+    res.locals.canCreateProducts = req.session.privilegios.some(
+      privilegio => privilegio.nombre === "crear productos"
+    );
+  }
   next();
 });
 

@@ -8,6 +8,7 @@ class ProductController {
       products,
       usuario: req.session.email,
       isLoggedIn: req.session.isLoggedIn || false,
+      privilegios: req.session.privilegios || [],
   });
   }
 
@@ -39,7 +40,7 @@ class ProductController {
     const product = ProductRepository.findById(req.params.id);
     
     if (product) {
-      res.render('/products/detail', {
+      res.render('/products/new', {
         product,
         usuario: req.session.email,
         isLoggedIn: req.session.isLoggedIn || false,

@@ -15,7 +15,7 @@ class SignUp {
             console.log(req.body.email)
             console.log(req.body.password)
             console.log('Token CSRF recibido:', req.body._csrf);
-            
+
         nuevo_usuario.save().then(() => {
             res.redirect('login');
         }).catch((error) => {
@@ -32,31 +32,39 @@ class SignUp {
         });
     };
 
-    post_login(request, response, next){
+    post_login(request, response, next) {
         Usuario.fetchOne(request.body.email)
-        .then(([rows, fieldData]) => {
-            if (rows.length > 0){
-                bcrypt.compare(request.body.password, rows[0].password)
-                    .then((doMatch) => {
-                        if (doMatch){
-                            request.session.email = rows[0].email;
-                            request.session.isLoggedIn = true;
-                            return request.session.save(err => {
-                                response.redirect('/products');
-                            });
-                        } else {
-                            response.redirect('/404');
-                        }
+          .then(([rows, fieldData]) => {
+            if (rows.length > 0) {
+              bcrypt.compare(request.body.password, rows[0].password)
+                .then((doMatch) => {
+                  if (doMatch) {
+                    request.session.email = rows[0].email;
+                    request.session.isLoggedIn = true;
+                    
+                    // Get user privileges based on their role
+                    Usuario.getPrivilegios(rows[0].email)  // Use email instead of username
+                      .then(([privilegios, fieldData]) => {
+                        request.session.privilegios = privilegios; // Store privileges in session
+                        return request.session.save(err => {
+                          response.redirect('/products');
+                        });
+                      }).catch((error) => {
+                        console.log(error);
+                      });
+                  } else {
+                    response.redirect('/404');
+                  }
                 }).catch((error) => {
-                    console.log(error);
+                  console.log(error);
                 });
             } else {
-                response.redirect('login');
+              response.redirect('login');
             }
-        }).catch((error) => {
+          }).catch((error) => {
             console.log(error);
-        });
-    };
+          });
+      }
 
     isAuthenticated(req, res, next) {
         // Verifica si la sesión tiene datos (por ejemplo, nombre o email)
@@ -72,6 +80,21 @@ class SignUp {
             res.redirect('/home'); // Redirige al usuario después de cerrar sesión
         });
     }
+    post_signup(req, res, next) {
+        const nuevo_usuario = new Usuario(req.body.email, req.body.password);
+        
+        nuevo_usuario.save()
+          .then(() => {
+            // After saving the user, assign them the cliente role
+            return Usuario.assignRoleToUser(req.body.email, 'cliente');
+          })
+          .then(() => {
+            res.redirect('login');
+          })
+          .catch((error) => {
+            console.log(error + 'Erroooor');
+          });
+      }
 }
 
 module.exports = new SignUp();
