@@ -39,7 +39,7 @@ class ProductController {
     const product = ProductRepository.findById(req.params.id);
     
     if (product) {
-      res.render('products/detail', {
+      res.render('/products/detail', {
         product,
         usuario: req.session.email,
         isLoggedIn: req.session.isLoggedIn || false,

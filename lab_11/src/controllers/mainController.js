@@ -1,5 +1,5 @@
 class Main{
-    getMain(res,req){
+    getMain(req, res){
         res.render('home',{
             usuario: req.session.email,
             isLoggedIn: req.session.isLoggedIn || false,

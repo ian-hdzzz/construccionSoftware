@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController');
-const { isAuthenticated } = require('../controllers/logInController');
+const { isAuthenticated } = require('../controllers/authController');
 
 // Ruta para listar productos
 router.get('/', isAuthenticated, productController.list);
@@ -10,7 +10,7 @@ router.get('/', isAuthenticated, productController.list);
 router.get('/new', isAuthenticated, productController.showNewProductForm);
 
 // Ruta para crear nuevo producto
-router.post('/new', productController.create);
+router.post('/new',isAuthenticated, productController.create);
 
 // Ruta para mostrar un producto específico
 router.get('/:id', isAuthenticated, productController.detail);
