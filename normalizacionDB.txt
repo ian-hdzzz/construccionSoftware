@@ -1,0 +1,23 @@
+Cuando el proyecto se crea la db desde cero
+
+Procedimiento
+1. Identificar necesidad
+2. Identificar requisitos de información
+3. Elaborar diagrama de contexto ()
+4. Elaborar Modelo Entidad Relación (MER) / EMER
+5. Elaborar MR (Traducción del MER)
+
+Cuando la db ya existe
+
+NORMALIZARLA
+1. Simplificar el mantenimiento de los datos actualizándolos, insertándolos y borrándolos.
+2. Permitir la recuperación sencilla de los datos en respuesta a las solicitudes de consultas y reportes.
+3. Reducir la necesidad de reestructurar o reorganizar los datos cuando surjan nuevas aplicaciones.
+
+PASOS PARA NORMALIZARLA
+
+1. Descomponer todos los grupos de datos en registros bidimensionales.
+
+2. Eliminar todas las relaciones en la que los datos no dependan completamente de la llave primaria del registro.
+
+3. Eliminar todas las relaciones que contengan dependencias transitivas.
