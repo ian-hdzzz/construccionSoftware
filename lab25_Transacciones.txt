@@ -26,7 +26,7 @@ Información Adicional
 	•	Importancia del control de transacciones: Si un sistema no maneja correctamente las transacciones, puede quedar en un estado inconsistente o “roto” si ocurren fallos durante las operaciones.
 	•	Ejemplo en MariaDB: En MariaDB, puedes encontrar más detalles sobre el uso de transacciones en su documentación, donde se explican las instrucciones BEGIN, COMMIT, ROLLBACK y el control de errores en transacciones.
 
-Este entendimiento básico sobre las transacciones es clave para mantener la integridad y la seguridad de los datos en sistemas de bases de datos complejas.
+Este entendimiento básico sobre las transacciones es clave para mantener la integridad y la seguridad de los datos en sistemas de bases de datos complejas
 
 Referencias Información Adicional
 
