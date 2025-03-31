@@ -133,3 +133,4 @@ JOIN Estudio E ON Pe.nomestudio = E.nomestudio
 WHERE E.nomestudio = 'MGM'
 
 
+-- FUNCIONES AGREGADAS Y SUB-CONSULTAS

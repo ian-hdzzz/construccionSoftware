@@ -6,6 +6,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const csrf = require('csurf');
 const csrfProtection = csrf();
+const { isAuthenticated } = require('./controllers/authController');
 
 // initialitations
 const app = express();
