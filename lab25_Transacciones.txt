@@ -1,0 +1,35 @@
+Transacciones en sql Resumen
+
+Una transacción es una serie de operaciones que se realizan juntas como una única unidad lógica de trabajo. Para que una transacción sea válida, debe cumplir con las propiedades ACID:
+	1.	Atomicidad: La transacción es atómica, lo que significa que o se completan todas sus operaciones o no se realiza ninguna. Si una operación falla, todo se deshace.
+	2.	Coherencia: Al finalizar la transacción, los datos deben quedar en un estado consistente, respetando todas las reglas y la integridad de la base de datos.
+	3.	Aislamiento: Las transacciones concurrentes deben ser aisladas entre sí, es decir, que no se deben ver datos intermedios de otras transacciones que aún no han terminado.
+	4.	Durabilidad: Una vez que una transacción se completa, sus cambios son permanentes y sobreviven incluso si ocurre un error en el sistema.
+
+Implementación de Transacciones
+
+El programador SQL es responsable de iniciar y finalizar transacciones en puntos específicos donde se requiera coherencia de los datos. El sistema de gestión de bases de datos (DBMS) garantiza la integridad física de las transacciones utilizando mecanismos como:
+	•	Bloqueo de recursos: Para garantizar el aislamiento.
+	•	Registro de transacciones (log): Para asegurar la durabilidad, lo que permite recuperar los datos incluso después de un fallo del sistema.
+	•	Control de atomicidad y coherencia: Si una transacción no se completa correctamente, se deshacen todas las modificaciones realizadas durante su ejecución.
+
+Tipos de Transacciones
+	1.	Transacciones de Confirmación Automática: Cada instrucción SQL (como INSERT, UPDATE, DELETE) se trata como una transacción independiente.
+	2.	Transacciones Explícitas: Son iniciadas con BEGIN TRANSACTION y finalizadas con COMMIT o ROLLBACK.
+	3.	Transacciones Implícitas: Se inician automáticamente después de que se completa la transacción anterior, pero deben ser completadas explícitamente con COMMIT o ROLLBACK.
+
+Buenas Prácticas
+	•	Cortar las transacciones lo más posible: Las transacciones deben ser lo más rápidas y cortas posible para evitar mantener recursos bloqueados por largo tiempo, lo que puede afectar el rendimiento.
+	•	Uso de bloqueos: Las filas modificadas durante una transacción deben estar bloqueadas hasta que la transacción sea confirmada o deshecha, para asegurar la consistencia.
+
+Información Adicional
+	•	Importancia del control de transacciones: Si un sistema no maneja correctamente las transacciones, puede quedar en un estado inconsistente o “roto” si ocurren fallos durante las operaciones.
+	•	Ejemplo en MariaDB: En MariaDB, puedes encontrar más detalles sobre el uso de transacciones en su documentación, donde se explican las instrucciones BEGIN, COMMIT, ROLLBACK y el control de errores en transacciones.
+
+Este entendimiento básico sobre las transacciones es clave para mantener la integridad y la seguridad de los datos en sistemas de bases de datos complejas.
+
+Referencias Información Adicional
+
+Documentación de MariaDB sobre Transacciones
+Documentación de SQL Server sobre Transacciones
+Documentación de MySQL sobre Transacciones
