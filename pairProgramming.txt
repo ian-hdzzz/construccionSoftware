@@ -5,3 +5,7 @@ https://github.com/Elmay05/Construccion-de-software/commit/85e80715fb3981c75afea
 Lab 10 25/02/25
 Omar Casillas 
 https://github.com/Elmay05/Construccion-de-software/commit/3b1c6644dcd21f2b722b2e6aa1ce6af1866d57eb 
+
+Lab 24 30/03/25
+Jacob Espejel
+https://github.com/MrJac0bM/TC2005B-/commit/2c876a9ec776b73ca6b8880a90bb847ab5a7a80e 
